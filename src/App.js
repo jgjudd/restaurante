@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Table from './components/Table'
 import './App.css';
 
 const App = () => {
@@ -15,18 +16,9 @@ const App = () => {
   }, [])
 
   return (
-    <ul>
-      { console.log(results)}
-      {
-        results.map((location, i) => (
-          <li key={i}>
-            {location.name} |
-            {location.address1} |
-            {location.city}, {location.state}
-          </li>
-        ))
-      }
-    </ul>
+    <div>
+      <Table restaurants={results} />
+    </div>
   );
 }
 

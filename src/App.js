@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react'
 import './App.css';
 
-function App() {
+const App = () => {
+  const [results, setResults] = useState([])
+    
+  useEffect(() => {
+      fetch('https://code-challenge.spectrumtoolbox.com/api/restaurants', {
+          headers: {
+              Authorization: 'Api-Key q3MNxtfep8Gt',
+          },
+      })
+      .then(response => response.json())
+      .then(json => setResults(json))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ul>
+      { console.log(results)}
+      {
+        results.map((location, i) => (
+          <li key={i}>
+            {location.name} |
+            {location.address1} |
+            {location.city}, {location.state}
+          </li>
+        ))
+      }
+    </ul>
   );
 }
 

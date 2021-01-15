@@ -1,6 +1,8 @@
 import React from 'react'
+import { sortByName } from '../utilities/sortFunctions'
 
 const Table = ({ restaurants }) => {
+    let sortedRestaurants = restaurants.sort(sortByName)
     return (
         <table>
             <thead>
@@ -14,7 +16,7 @@ const Table = ({ restaurants }) => {
             </thead>
             <tbody>
                 {
-                    restaurants.map((restaurant, i ) => (
+                    sortedRestaurants.map((restaurant, i ) => (
                         <tr key={i}>
                             <td>{restaurant.name}</td>
                             <td>{restaurant.city}</td>

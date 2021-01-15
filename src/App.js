@@ -17,6 +17,7 @@ const App = () => {
 
   return (
     <div>
+      <input type='text' />
       <Table restaurants={results} />
     </div>
   );

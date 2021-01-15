@@ -1,5 +1,24 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import TableRow from './TableRow'
+
+const StyledTable = styled.table`
+    border: 1px solid grey;
+`
+const StyledHeaderRow = styled.tr`
+    & td {
+        text-align: center;
+        background-color: grey;
+        color: white;
+        font-size: 2rem;
+    }
+`
+
+const TableBody = styled.tbody`
+    & tr:nth-child(even) {
+        background-color: #eeeeee;
+    }
+`
 
 const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
     console.log(typeof(searchTerm) + ": " + searchTerm)
@@ -49,24 +68,24 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
         <React.Fragment>
             {
                 restaurantList.length > 0 ? 
-                    (<table>
+                    (<StyledTable>
                         <thead>
-                            <tr>
-                                <td><button onClick={() => handleSort('name')}>Name</button></td>
-                                <td><button onClick={() => handleSort('city')}>City</button></td>
-                                <td><button onClick={() => handleSort('state')}>State</button></td>
-                                <td><button onClick={() => handleSort('telephone')}>Telephone</button></td>
-                                <td><button onClick={() => handleSort('genre')}>Genre</button></td>
-                            </tr>
+                            <StyledHeaderRow>
+                                <td onClick={() => handleSort('name')}>Name</td>
+                                <td onClick={() => handleSort('city')}>City</td>
+                                <td onClick={() => handleSort('state')}>State</td>
+                                <td onClick={() => handleSort('telephone')}>Telephone</td>
+                                <td onClick={() => handleSort('genre')}>Genre</td>
+                            </StyledHeaderRow>
                         </thead>
-                        <tbody>
+                        <TableBody>
                             {
                                 restaurantList.map((restaurant, i ) => (
                                     <TableRow restaurant={restaurant} key={i} />
                                 ))
                             }
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </StyledTable>
                     ) :
                     <span>No Results Were Found That Match That Criteria</span>
             }

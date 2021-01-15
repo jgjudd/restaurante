@@ -22,7 +22,11 @@ const App = () => {
 
   return (
     <div>
-      <input type='text' placeholder='Filter By Name/City/Genre' onChange={(e) => setSearchTerm(e.target.value)} />
+      <div>
+        <input type='text' placeholder='Filter By Name/City/Genre' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+        <button onClick={() => setSearchTerm('')}>X</button>
+      </div>
+      
       { console.log("Search Term: " + searchTerm) }
       <label for='state-dropdown'>Filter By State:</label>
       <select name="state-dropdown" onChange={(e) => setStateFilter(e.target.value)}>

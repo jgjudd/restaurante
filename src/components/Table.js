@@ -45,30 +45,37 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
     })
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <td><button onClick={() => handleSort('name')}>Name</button></td>
-                    <td><button onClick={() => handleSort('city')}>City</button></td>
-                    <td><button onClick={() => handleSort('state')}>State</button></td>
-                    <td><button onClick={() => handleSort('telephone')}>Telephone</button></td>
-                    <td><button onClick={() => handleSort('genre')}>Genre</button></td>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    restaurantList.map((restaurant, i ) => (
-                        <tr key={i}>
-                            <td>{restaurant.name}</td>
-                            <td>{restaurant.city}</td>
-                            <td>{restaurant.state}</td>
-                            <td>{restaurant.telephone}</td>
-                            <td>{restaurant.genre}</td>
-                        </tr>
-                    ))
-                }
-            </tbody>
-        </table>
+        <React.Fragment>
+            {
+                restaurantList.length > 0 ? 
+                    (<table>
+                        <thead>
+                            <tr>
+                                <td><button onClick={() => handleSort('name')}>Name</button></td>
+                                <td><button onClick={() => handleSort('city')}>City</button></td>
+                                <td><button onClick={() => handleSort('state')}>State</button></td>
+                                <td><button onClick={() => handleSort('telephone')}>Telephone</button></td>
+                                <td><button onClick={() => handleSort('genre')}>Genre</button></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                restaurantList.map((restaurant, i ) => (
+                                    <tr key={i}>
+                                        <td>{restaurant.name}</td>
+                                        <td>{restaurant.city}</td>
+                                        <td>{restaurant.state}</td>
+                                        <td>{restaurant.telephone}</td>
+                                        <td>{restaurant.genre}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                    ) :
+                    <span>No Results Were Found That Match That Criteria</span>
+            }
+        </React.Fragment>
     )
 }
 

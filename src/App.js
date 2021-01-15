@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Table from './components/Table'
+import SearchBar from './components/SearchBar'
 import './App.css';
 
 const App = () => {
@@ -23,10 +24,7 @@ const App = () => {
   return (
     <div>
       <header>Header</header>
-      <div>
-        <input type='text' placeholder='Filter By Name/City/Genre' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-        <button onClick={() => setSearchTerm('')}>X</button>
-      </div>
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       
       { console.log("Search Term: " + searchTerm) }
       <div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Table = ({ restaurants, genre = ''}) => {
+const Table = ({ restaurants, genre = '', stateFilter }) => {
     console.log(typeof(genre) + ": " + genre)
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
@@ -13,19 +13,25 @@ const Table = ({ restaurants, genre = ''}) => {
         setSortObject({ sortField, direction });
     }
 
-    const filterByGenre = () => {
+    const applyFilters = () => {
+        let result;
+        if (stateFilter === 'All') {
+            result = [...restaurants]
+        } else {
+            result = [...restaurants].filter(restaurant => restaurant.state === stateFilter)
+        }
         // TODO: Break up search terms so they can be entered in any order,
         //       in order to allow for multiple, non-consecutive search terms
-        if (genre === '') {
-            return [...restaurants]
-        } else {
+        if (genre !== '') {
             let searchTerm = genre.toLowerCase().trim()
-            return [...restaurants].filter(restaurant => (
+            result = result.filter(restaurant => (
                 restaurant.genre.toLowerCase().includes(searchTerm))
             )
         }
+        return result
     }
-    const filteredList = filterByGenre()
+
+    const filteredList = applyFilters()
     const restaurantList = filteredList.sort((a, b) => {
         if (a[sortObject.sortField] < b[sortObject.sortField]) {
             return sortObject.direction === 'ascending' ? -1 : 1

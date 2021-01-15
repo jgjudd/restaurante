@@ -25,11 +25,11 @@ const Table = ({ restaurants }) => {
         <table>
             <thead>
                 <tr>
-                    <td>Name</td>
-                    <td>City</td>
-                    <td><button type='button' onClick={() => handleSort('state')}>State</button></td>
-                    <td>Telephone</td>
-                    <td>Genre</td>
+                    <td><button onClick={() => handleSort('name')}>Name</button></td>
+                    <td><button onClick={() => handleSort('city')}>City</button></td>
+                    <td><button onClick={() => handleSort('state')}>State</button></td>
+                    <td><button onClick={() => handleSort('telephone')}>Telephone</button></td>
+                    <td><button onClick={() => handleSort('genre')}>Genre</button></td>
                 </tr>
             </thead>
             <tbody>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Header from './components/Header'
 import Table from './components/Table'
 import SearchBar from './components/SearchBar'
 import SelectState from './components/SelectState'
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <div>
-      <header>Header</header>
+      <Header />
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />
       <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />

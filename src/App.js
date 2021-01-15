@@ -4,7 +4,7 @@ import './App.css';
 
 const App = () => {
   const [results, setResults] = useState([])
-  const [genre, setGenre] = useState()
+  const [searchTerm, setSearchTerm] = useState()
   const [stateFilter, setStateFilter] = useState('All')
 
   useEffect(() => {
@@ -22,8 +22,8 @@ const App = () => {
 
   return (
     <div>
-      <input type='text' placeholder='Filter By Genre' onChange={(e) => setGenre(e.target.value)} />
-      { console.log("Genre: " + genre) }
+      <input type='text' placeholder='Filter By Name/City/Genre' onChange={(e) => setSearchTerm(e.target.value)} />
+      { console.log("Search Term: " + searchTerm) }
       <label for='state-dropdown'>Filter By State:</label>
       <select name="state-dropdown" onChange={(e) => setStateFilter(e.target.value)}>
         <option value="All">All</option>
@@ -80,7 +80,7 @@ const App = () => {
         <option value="WY">Wyoming</option>
       </select>
       { console.log("State: " + stateFilter) }
-      <Table restaurants={results} genre={genre} stateFilter={stateFilter} />
+      <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
     </div>
   );
 }

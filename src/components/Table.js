@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const Table = ({ restaurants, genre = '', stateFilter }) => {
-    console.log(typeof(genre) + ": " + genre)
+const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
+    console.log(typeof(searchTerm) + ": " + searchTerm)
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
 
@@ -22,11 +22,13 @@ const Table = ({ restaurants, genre = '', stateFilter }) => {
         }
         // TODO: Break up search terms so they can be entered in any order,
         //       in order to allow for multiple, non-consecutive search terms
-        if (genre !== '') {
-            let searchTerm = genre.toLowerCase().trim()
+        if (searchTerm !== '') {
+            let term = searchTerm.toLowerCase().trim()
             result = result.filter(restaurant => (
-                restaurant.genre.toLowerCase().includes(searchTerm))
-            )
+                restaurant.name.toLowerCase().includes(term) |
+                restaurant.city.toLowerCase().includes(term) |
+                restaurant.genre.toLowerCase().includes(term)
+            ))
         }
         return result
     }

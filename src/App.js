@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Header from './components/Header'
+import HeaderSection from './components/styled/HeaderSection'
 import Table from './components/Table'
 import SearchBar from './components/SearchBar'
 import SelectState from './components/SelectState'
@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <Header />
+      <HeaderSection title='Restaurante' />
       <ToolbarSection>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />

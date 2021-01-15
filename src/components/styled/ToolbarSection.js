@@ -5,6 +5,7 @@ const StyledToolbar = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 1rem;
 `
 
 const ToolbarSection = (props) => {

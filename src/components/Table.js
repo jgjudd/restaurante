@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import TableRow from './TableRow'
 
 const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
     console.log(typeof(searchTerm) + ": " + searchTerm)
@@ -61,13 +62,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
                         <tbody>
                             {
                                 restaurantList.map((restaurant, i ) => (
-                                    <tr key={i}>
-                                        <td>{restaurant.name}</td>
-                                        <td>{restaurant.city}</td>
-                                        <td>{restaurant.state}</td>
-                                        <td>{restaurant.telephone}</td>
-                                        <td>{restaurant.genre}</td>
-                                    </tr>
+                                    <TableRow restaurant={restaurant} key={i} />
                                 ))
                             }
                         </tbody>

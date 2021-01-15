@@ -22,6 +22,7 @@ const App = () => {
 
   return (
     <div>
+      <header>Header</header>
       <div>
         <input type='text' placeholder='Filter By Name/City/Genre' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         <button onClick={() => setSearchTerm('')}>X</button>
@@ -85,7 +86,6 @@ const App = () => {
           <option value="WY">Wyoming</option>
         </select>
         <button onClick={() => setStateFilter('All')}>Reset</button>
-        { console.log("State: " + stateFilter) }
       </div>
       <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
     </div>

@@ -4,6 +4,7 @@ import './App.css';
 
 const App = () => {
   const [results, setResults] = useState([])
+  const [genre, setGenre] = useState()
 
   useEffect(() => {
       async function getRestaurants() {
@@ -20,8 +21,9 @@ const App = () => {
 
   return (
     <div>
-      <input type='text' />
-      <Table restaurants={results} />
+      <input type='text' placeholder='Filter By Genre' onChange={(e) => setGenre(e.target.value)} />
+      { console.log(genre) }
+      <Table restaurants={results} genre={genre} />
     </div>
   );
 }

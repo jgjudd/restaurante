@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
-const Table = ({ restaurants }) => {
+const Table = ({ restaurants, genre = ''}) => {
+    console.log(typeof(genre) + ": " + genre)
+
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
-    
+
     const handleSort = (sortField) => {
         let direction = 'ascending';
         if (sortObject.sortField === sortField && sortObject.direction === 'ascending') {
@@ -11,7 +13,20 @@ const Table = ({ restaurants }) => {
         setSortObject({ sortField, direction });
     }
 
-    const sortedRestaurants = [...restaurants].sort((a, b) => {
+    const filterByGenre = () => {
+        // TODO: Break up search terms so they can be entered in any order,
+        //       in order to allow for multiple, non-consecutive search terms
+        if (genre === '') {
+            return [...restaurants]
+        } else {
+            let searchTerm = genre.toLowerCase().trim()
+            return [...restaurants].filter(restaurant => (
+                restaurant.genre.toLowerCase().includes(searchTerm))
+            )
+        }
+    }
+    const filteredList = filterByGenre()
+    const restaurantList = filteredList.sort((a, b) => {
         if (a[sortObject.sortField] < b[sortObject.sortField]) {
             return sortObject.direction === 'ascending' ? -1 : 1
         }
@@ -34,7 +49,7 @@ const Table = ({ restaurants }) => {
             </thead>
             <tbody>
                 {
-                    sortedRestaurants.map((restaurant, i ) => (
+                    restaurantList.map((restaurant, i ) => (
                         <tr key={i}>
                             <td>{restaurant.name}</td>
                             <td>{restaurant.city}</td>

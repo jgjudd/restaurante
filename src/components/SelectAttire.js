@@ -15,7 +15,7 @@ const StyledSelect = styled.select`
 const SelectAttire = ({ attireFilter, setAttireFilter }) => {
     return (
       <SelectContainer>
-        <label for='state-dropdown'>Filter By State:</label>
+        <label for='state-dropdown'>Filter By Dress Code:</label>
         <div>
           <StyledSelect name="state-dropdown" value={attireFilter} onChange={(e) => setAttireFilter(e.target.value)}>
             <option value="All">All</option>

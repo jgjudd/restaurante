@@ -4,7 +4,6 @@ import Table from './components/Table'
 import SearchBar from './components/SearchBar'
 import SelectState from './components/SelectState'
 import './App.css';
-import ToolbarSection from './components/styled/ToolbarSection'
 
 const App = () => {
   const [results, setResults] = useState([])
@@ -25,14 +24,18 @@ const App = () => {
   }, [])
 
   return (
-    <React.Fragment>
-      <Header title='Restaurante' color='white' backgroundColor='red' />
-      <ToolbarSection>
+    <div id='grid'>
+      <div id='header-section'>
+        <Header title='Restaurante' color='white' backgroundColor='red' />
+      </div>
+      <div id='toolbar-section'>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />
-      </ToolbarSection>
-      <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
-    </React.Fragment>
+      </div>
+      <div id='table-section'>
+        <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
+      </div>
+    </div>
   );
 }
 

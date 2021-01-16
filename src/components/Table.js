@@ -2,23 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import TableRow from './TableRow'
 
-const TableContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 1rem;
-`
-const StyledTable = styled.table`
-    min-width: 80vw;
-`
 
-const StyledHeaderRow = styled.tr`
-    & td {
-        text-align: center;
-        background-color: grey;
-        color: white;
-        font-size: 2rem;
-    }
+const StyledTable = styled.table`
+    
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 `
 
 const TableBody = styled.tbody`
@@ -72,18 +61,14 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
     })
 
     return (
-        <TableContainer>
+        <StyledTable>
             {
                 restaurantList.length > 0 ? 
                     (<StyledTable>
                         <thead>
-                            <StyledHeaderRow>
-                                <td onClick={() => handleSort('name')}>Name</td>
-                                <td onClick={() => handleSort('city')}>City</td>
-                                <td onClick={() => handleSort('state')}>State</td>
-                                <td onClick={() => handleSort('telephone')}>Telephone</td>
-                                <td onClick={() => handleSort('genre')}>Genre</td>
-                            </StyledHeaderRow>
+                            
+                            <TableRow isHeader handleSort={handleSort} />   
+                            
                         </thead>
                         <TableBody>
                             {
@@ -96,7 +81,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
                     ) :
                     <span>No Results Were Found That Match That Criteria</span>
             }
-        </TableContainer>
+        </StyledTable>
     )
 }
 

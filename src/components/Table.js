@@ -2,9 +2,16 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import TableRow from './TableRow'
 
-const StyledTable = styled.table`
-    border: 1px solid grey;
+const TableContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
 `
+const StyledTable = styled.table`
+    min-width: 80vw;
+`
+
 const StyledHeaderRow = styled.tr`
     & td {
         text-align: center;
@@ -65,7 +72,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
     })
 
     return (
-        <React.Fragment>
+        <TableContainer>
             {
                 restaurantList.length > 0 ? 
                     (<StyledTable>
@@ -89,7 +96,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
                     ) :
                     <span>No Results Were Found That Match That Criteria</span>
             }
-        </React.Fragment>
+        </TableContainer>
     )
 }
 

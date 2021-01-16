@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import HeaderSection from './components/styled/HeaderSection'
+import Header from './components/Header'
 import Table from './components/Table'
 import SearchBar from './components/SearchBar'
 import SelectState from './components/SelectState'
 import './App.css';
-import TableSection from './components/styled/TableSection'
 import ToolbarSection from './components/styled/ToolbarSection'
 
 const App = () => {
@@ -27,14 +26,12 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <HeaderSection title='Restaurante' />
+      <Header title='Restaurante' color='white' backgroundColor='red' />
       <ToolbarSection>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />
       </ToolbarSection>
-      <TableSection>
-        <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
-      </TableSection>
+      <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
     </React.Fragment>
   );
 }

@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Table from './components/Table'
 import SearchBar from './components/SearchBar'
+import SelectAttire from './components/SelectAttire'
 import SelectState from './components/SelectState'
 import './App.css';
 
 const App = () => {
   const [results, setResults] = useState([])
-  const [searchTerm, setSearchTerm] = useState()
+  const [searchTerm, setSearchTerm] = useState('')
   const [stateFilter, setStateFilter] = useState('All')
+  const [attireFilter, setAttireFilter] = useState('All')
 
   useEffect(() => {
       async function getRestaurants() {
@@ -31,9 +33,10 @@ const App = () => {
       <div id='toolbar-section'>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />
+        <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} />
       </div>
       <div id='table-section'>
-        <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} />
+        <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} attireFilter={attireFilter} />
       </div>
     </div>
   );

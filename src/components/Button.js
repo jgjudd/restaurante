@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const Button = ({ onClick, text, color, backgroundColor }) => {
     const StyledButton = styled.button`
-        margin: 1rem;
+        margin-left: 1rem;
         padding: .5rem 1.5rem .5rem 1.5rem;
         border: .1rem solid ${color};
         border-radius: 2rem;

@@ -16,7 +16,7 @@ const TableBody = styled.tbody`
     }
 `
 
-const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
+const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter }) => {
     console.log(typeof(searchTerm) + ": " + searchTerm)
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
@@ -36,6 +36,14 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
         } else {
             result = [...restaurants].filter(restaurant => restaurant.state === stateFilter)
         }
+
+        if (attireFilter === 'All') {
+            result = result
+        } else {
+            result = result.filter(restaurant => restaurant.attire.toLowerCase() === attireFilter)
+        }
+
+
         // TODO: Break up search terms so they can be entered in any order,
         //       in order to allow for multiple, non-consecutive search terms
         if (searchTerm !== '') {
@@ -62,6 +70,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter }) => {
 
     return (
         <StyledTable>
+            { console.log(restaurants) }
             {
                 restaurantList.length > 0 ? 
                     (<StyledTable>

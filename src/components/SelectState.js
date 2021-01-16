@@ -1,8 +1,9 @@
 import React from 'react'
+import Button from './Button'
 
 const SelectState = ({ stateFilter, setStateFilter }) => {
     return (
-        <div>
+      <div>
         <label for='state-dropdown'>Filter By State:</label>
         <select name="state-dropdown" value={stateFilter} onChange={(e) => setStateFilter(e.target.value)}>
           <option value="All">All</option>
@@ -58,7 +59,7 @@ const SelectState = ({ stateFilter, setStateFilter }) => {
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <button onClick={() => setStateFilter('All')}>Reset</button>
+        <Button onClick={() => setStateFilter('All')} text='Reset' color='red' backgroundColor='white' />
       </div>
     )
 }

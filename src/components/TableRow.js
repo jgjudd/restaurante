@@ -6,8 +6,14 @@ const Header = styled.tr`
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #606a61;
+    background-color: red;
     color: white;
+    border: 1px solid red;
+
+    & th:hover {
+        background-color: white;
+        color: red;
+    }
 `
 
 const Row = styled.tr`

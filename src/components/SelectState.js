@@ -13,7 +13,13 @@ const StyledSelect = styled.select`
     font-size: 2.3rem;
 `
 
-const SelectState = ({ stateFilter, setStateFilter }) => {
+const SelectState = ({ stateFilter, setStateFilter, setCurrentPage }) => {
+
+    const handleChange = (value) => {
+      setCurrentPage(1)
+      setStateFilter(value)
+    }
+
     return (
       <SelectContainer>
         <Label id='state-dropdown' text='Filter By State: ' />
@@ -21,7 +27,7 @@ const SelectState = ({ stateFilter, setStateFilter }) => {
           <StyledSelect 
             aria-labelledby='state-dropdown' 
             value={stateFilter} 
-            onChange={(e) => setStateFilter(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           >
             <option value="All">All</option>
             <option value="AL">Alabama</option>
@@ -77,7 +83,7 @@ const SelectState = ({ stateFilter, setStateFilter }) => {
             <option value="WY">Wyoming</option>
           </StyledSelect>
           <Button 
-            onClick={() => setStateFilter('All')} 
+            onClick={() => handleChange('All')} 
             text='Reset' 
             color='red' 
             backgroundColor='white' 

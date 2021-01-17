@@ -9,6 +9,7 @@ const StyledTable = styled.table`
     margin-top: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
+    border: 1px solid black;
     width: 100%;
 `
 
@@ -97,7 +98,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
                         <div>
                             <PageNumbers 
                                 itemsPerPage={itemsPerPage} 
-                                totalItems={restaurants.length}
+                                totalItems={sortedRestaurantList.length}
                                 currentPage={currentPage} 
                                 setCurrentPage={setCurrentPage} 
                             />

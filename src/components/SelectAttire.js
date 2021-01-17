@@ -13,7 +13,11 @@ const StyledSelect = styled.select`
     font-size: 2rem;
 `
 
-const SelectAttire = ({ attireFilter, setAttireFilter }) => {
+const SelectAttire = ({ attireFilter, setAttireFilter, setCurrentPage }) => {
+    const handleChange = (value) => {
+      setCurrentPage(1)
+      setAttireFilter(value)
+    } 
     return (
       <SelectContainer>
         <Label id='attire-dropdown' text='Filter By Dress Code: ' />
@@ -21,7 +25,7 @@ const SelectAttire = ({ attireFilter, setAttireFilter }) => {
           <StyledSelect 
             aria-labelledby="attire-dropdown" 
             value={attireFilter} 
-            onChange={(e) => setAttireFilter(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           >
             <option value="All">All</option>
             <option value="casual">Casual</option>
@@ -30,7 +34,7 @@ const SelectAttire = ({ attireFilter, setAttireFilter }) => {
             <option value="formal">Formal</option>
           </StyledSelect>
           <Button 
-            onClick={() => setAttireFilter('All')} 
+            onClick={() => handleChange('All')} 
             text='Reset' 
             color='red' 
             backgroundColor='white'

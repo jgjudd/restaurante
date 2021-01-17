@@ -37,10 +37,10 @@ const App = () => {
         <Header title='Restaurante' color='white' backgroundColor='red' />
       </div>
       <div id='toolbar-section'>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <SelectItemsPerPage itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} />
-        <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />
-        <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} />
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} setCurrentPage={setCurrentPage} />
+        <SelectItemsPerPage itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} setCurrentPage={setCurrentPage} />
+        <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} setCurrentPage={setCurrentPage} />
+        <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} setCurrentPage={setCurrentPage} />
       </div>
       <div id='table-section'>
         { 

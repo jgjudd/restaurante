@@ -13,7 +13,13 @@ const StyledSelect = styled.select`
   font-size: 2.3rem;
 `
 
-const SelectItemsPerPage = ({ itemsPerPage, setItemsPerPage }) => {
+const SelectItemsPerPage = ({ itemsPerPage, setItemsPerPage, setCurrentPage }) => {
+
+    const handleChange = (value) => {
+      setCurrentPage(1)
+      setItemsPerPage(value)
+    }
+
     return (
       <SelectContainer>
         <Label id='items-per-page-dropdown-label' text='Max Items Per Page: ' />
@@ -21,7 +27,7 @@ const SelectItemsPerPage = ({ itemsPerPage, setItemsPerPage }) => {
           <StyledSelect  
             aria-labelledby='items-per-page-dropdown-label' 
             value={itemsPerPage} 
-            onChange={(e) => setItemsPerPage(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
         >
             <option value="5">5</option>
             <option value="10">10</option>

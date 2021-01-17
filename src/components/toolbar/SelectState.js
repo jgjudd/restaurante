@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { ThemeContext } from '../../context/ThemeContext'
 
 import Button from '../misc/Button'
@@ -95,3 +96,11 @@ const SelectState = ({ stateFilter, setStateFilter, setCurrentPage }) => {
 }
 
 export default SelectState
+
+SelectState.propTypes = {
+  setStateFilter: PropTypes.func.isRequired, 
+  setCurrentPage: PropTypes.func.isRequired
+}
+SelectState.defaultProps = { 
+  stateFilter: 'All'
+}

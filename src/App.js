@@ -39,13 +39,29 @@ const App = () => {
     <ThemeContext.Provider value={theme}>
       <div id='grid'>
         <div id='header-section'>
-          <Header title='Restaurante' backgroundColor={theme} theme={theme} setTheme={setTheme} />
+          <Header title='Restaurante' theme={theme} setTheme={setTheme} />
         </div>
         <div id='toolbar-section'>
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} setCurrentPage={setCurrentPage} />
-          <SelectItemsPerPage itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} setCurrentPage={setCurrentPage} />
-          <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} setCurrentPage={setCurrentPage} />
-          <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} setCurrentPage={setCurrentPage} />
+            <SearchBar 
+              searchTerm={searchTerm} 
+              setSearchTerm={setSearchTerm} 
+              setCurrentPage={setCurrentPage} 
+            />
+            <SelectItemsPerPage 
+              itemsPerPage={itemsPerPage} 
+              setItemsPerPage={setItemsPerPage} 
+              setCurrentPage={setCurrentPage} 
+            />
+            <SelectState 
+              stateFilter={stateFilter} 
+              setStateFilter={setStateFilter} 
+              setCurrentPage={setCurrentPage} 
+            />
+            <SelectAttire 
+              attireFilter={attireFilter} 
+              setAttireFilter={setAttireFilter} 
+              setCurrentPage={setCurrentPage} 
+            />
         </div>
         <div id='table-section'>
           { 

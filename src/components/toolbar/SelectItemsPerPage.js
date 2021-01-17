@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Label from '../misc/Label'
 
@@ -42,3 +43,11 @@ const SelectItemsPerPage = ({ itemsPerPage, setItemsPerPage, setCurrentPage }) =
 }
 
 export default SelectItemsPerPage
+
+SelectItemsPerPage.propTypes = {
+  setItemsPerPage: PropTypes.func.isRequired, 
+  setCurrentPage: PropTypes.func.isRequired
+}
+SelectItemsPerPage.defaultProps = { 
+  itemsPerPage: 10
+}

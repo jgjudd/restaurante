@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { ThemeContext } from '../../context/ThemeContext'
 
 import Button from '../misc/Button'
@@ -48,3 +49,11 @@ const SelectAttire = ({ attireFilter, setAttireFilter, setCurrentPage }) => {
 }
 
 export default SelectAttire
+
+SelectAttire.propTypes = {
+  setAttireFilter: PropTypes.func.isRequired, 
+  setCurrentPage: PropTypes.func.isRequired
+}
+SelectAttire.defaultProps = { 
+  attireFilter: 'All'
+}

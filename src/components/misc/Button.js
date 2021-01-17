@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-
+import PropTypes from 'prop-types'
 
 const Button = ({ onClick, text, color }) => {
     const StyledButton = styled.button`
@@ -23,8 +22,18 @@ const Button = ({ onClick, text, color }) => {
             background-color: white;
             outline: 0;
         }
-`
+    `
     return <StyledButton onClick={onClick}>{text}</StyledButton>
 }
 
 export default Button
+
+Button.prototypes = {
+    onClick: PropTypes.func.isRequired,
+    text: PropTypes.string,
+    color: PropTypes.string
+}
+Button.defaultProps = {
+    text: 'Click', 
+    color: 'red'
+}

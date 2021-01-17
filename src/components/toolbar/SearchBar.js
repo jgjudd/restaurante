@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Label from '../misc/Label'
 
@@ -33,3 +34,11 @@ const SearchBar = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
 }
 
 export default SearchBar
+
+SearchBar.propTypes = {
+    setSearchTerm: PropTypes.func.isRequired, 
+    setCurrentPage: PropTypes.func.isRequired
+}
+SearchBar.defaultProps = {
+    searchTerm: ''
+}

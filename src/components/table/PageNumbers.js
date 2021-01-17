@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { ThemeContext } from '../../context/ThemeContext'
 
 const ButtonRow = styled.div`
@@ -14,9 +15,9 @@ const PageNumbers = ({ itemsPerPage, totalItems, currentPage, setCurrentPage }) 
     const Button = styled.button`
         margin-right: 1rem;
         background-color: white;
-        color: ${color}; 
+        color: ${color || 'red'}; 
         padding: .5rem 1.5rem .5rem 1.5rem;
-        border: .1rem solid ${color};
+        border: .1rem solid ${color || 'red'};
         border-radius: 2rem;
         font-size: 1.5rem;
         cursor: pointer;
@@ -51,3 +52,10 @@ const PageNumbers = ({ itemsPerPage, totalItems, currentPage, setCurrentPage }) 
 }
 
 export default PageNumbers
+
+PageNumbers.propTypes ={
+    itemsPerPage: PropTypes.number.isRequired,
+    totalItems: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    setCurrentPage: PropTypes.func.isRequired
+}

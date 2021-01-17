@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledSpan = styled.span`
     color: red; 
@@ -13,3 +14,7 @@ const ErrorMessage = ({ text }) => {
 }
 
 export default ErrorMessage
+
+ErrorMessage.propTypes = {
+    text: PropTypes.string.isRequired
+}

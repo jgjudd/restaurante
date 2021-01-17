@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { ThemeContext } from '../../context/ThemeContext'
 
 const TableHeader = ({ sortObject, handleSort }) => {
@@ -60,3 +61,8 @@ const Icon = styled.i`
 }
 
 export default TableHeader
+
+TableHeader.propTypes = { 
+    sortObject: PropTypes.object.isRequired, 
+    handleSort: PropTypes.func.isRequired
+}

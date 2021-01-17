@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-const Label = ({ text, color }) => {
+const Label = ({ id, text, color }) => {
     const StyledLabel = styled.label`
         color: ${color};
         font-size: 2rem;
@@ -9,8 +10,16 @@ const Label = ({ text, color }) => {
     `
     
     return (
-        <StyledLabel>{text}</StyledLabel>
+        <StyledLabel id={id}>{text}</StyledLabel>
     )
 }
 
 export default Label
+
+Label.propTypes = {
+    id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+}
+Label.defaultProps = { 
+    color: 'grey'
+}

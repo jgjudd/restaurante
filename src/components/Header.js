@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import Label from './misc/Label'
 
-const Header = ({ title, backgroundColor, theme, setTheme }) => {
+const Header = ({ title, theme, setTheme }) => {
     const StyledHeader = styled.header`
         width: 100vw;
         height: 10vh;
-        background-color: ${backgroundColor};
+        background-color: ${theme};
         color: white;
         font-size: 4rem;
         display: flex;
@@ -44,3 +45,11 @@ const Header = ({ title, backgroundColor, theme, setTheme }) => {
 }
 
 export default Header
+
+Header.propTypes = {
+    setTheme: PropTypes.func.isRequired
+}
+Header.defaultProps = { 
+    title: 'Restaurante',
+    theme: 'red'
+} 

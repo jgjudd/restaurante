@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
@@ -21,7 +22,14 @@ const TableBody = styled.tbody`
     }
 `
 
-const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, currentPage, setCurrentPage, itemsPerPage }) => {
+const Table = ({ 
+    restaurants, 
+    searchTerm, 
+    stateFilter, 
+    attireFilter, 
+    currentPage, 
+    setCurrentPage, 
+    itemsPerPage }) => {
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
 
@@ -42,11 +50,11 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
         }
 
         if (attireFilter === 'All') {
+            // eslint-disable-next-line no-self-assign
             result = result
         } else {
             result = result.filter(restaurant => restaurant.attire.toLowerCase() === attireFilter)
         }
-
 
         // TODO: Break up search terms so they can be entered in any order,
         //       in order to allow for multiple, non-consecutive search terms
@@ -113,3 +121,15 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
 }
 
 export default Table
+
+Table.propTypes ={
+    restaurants: PropTypes.array.isRequired, 
+    setCurrentPage: PropTypes.func.isRequired, 
+    itemsPerPage: PropTypes.number.isRequired
+}
+Table.defaultProps = {
+    searchTerm: '',
+    stateFilter: 'All', 
+    attireFilter: 'All', 
+    currentPage: 1
+}

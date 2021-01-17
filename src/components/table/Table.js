@@ -32,7 +32,7 @@ const Table = ({
     itemsPerPage }) => {
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
-
+    // Sort By Header Name and Direction
     const handleSort = (sortField) => {
         let direction = 'ascending';
         if (sortObject.sortField === sortField && sortObject.direction === 'ascending') {
@@ -41,6 +41,7 @@ const Table = ({
         setSortObject({ sortField, direction });
     }
 
+    // Create Filter Chain
     const applyFilters = () => {
         let result;
         if (stateFilter === 'All') {
@@ -68,8 +69,9 @@ const Table = ({
         }
         return result
     }
-
+    // Apply Filter Chain 
     const filteredRestaurantList = applyFilters()
+    // Then Sort Filtered Results
     const sortedRestaurantList = filteredRestaurantList.sort((a, b) => {
         if (a[sortObject.sortField] < b[sortObject.sortField]) {
             return sortObject.direction === 'ascending' ? -1 : 1
@@ -79,11 +81,12 @@ const Table = ({
         }
         return 0
     })
-
+    
+    // Set Pagination Parameters, based on filtered/sorted results 
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
     const restaurantList = sortedRestaurantList.slice(indexOfFirstItem, indexOfLastItem) 
-
+    
     return (
         <React.Fragment>
             {
@@ -92,10 +95,8 @@ const Table = ({
                         <StyledTable
                             role='table'
                             aria-label='Restaurants Table'
-                        >
-                            
-                            <TableHeader sortObject={sortObject} handleSort={handleSort} />   
-                           
+                        >                            
+                            <TableHeader sortObject={sortObject} handleSort={handleSort} />     
                             <TableBody>
                                 {
                                     restaurantList.map((restaurant, i ) => (

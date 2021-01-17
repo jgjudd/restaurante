@@ -11,6 +11,8 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [stateFilter, setStateFilter] = useState('All')
   const [attireFilter, setAttireFilter] = useState('All')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
 
   useEffect(() => {
       async function getRestaurants() {
@@ -25,6 +27,7 @@ const App = () => {
       getRestaurants()
   }, [])
 
+
   return (
     <div id='grid'>
       <div id='header-section'>
@@ -36,7 +39,14 @@ const App = () => {
         <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} />
       </div>
       <div id='table-section'>
-        <Table restaurants={results} searchTerm={searchTerm} stateFilter={stateFilter} attireFilter={attireFilter} />
+        <Table 
+          restaurants={results} 
+          searchTerm={searchTerm} 
+          stateFilter={stateFilter} 
+          attireFilter={attireFilter}
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage} 
+        />
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const TableBody = styled.tbody`
     }
 `
 
-const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter }) => {
+const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, currentPage, itemsPerPage }) => {
     console.log(typeof(searchTerm) + ": " + searchTerm)
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
@@ -57,8 +57,8 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter }) => {
         return result
     }
 
-    const filteredList = applyFilters()
-    const restaurantList = filteredList.sort((a, b) => {
+    const filteredRestaurantList = applyFilters()
+    const sortedRestaurantList = filteredRestaurantList.sort((a, b) => {
         if (a[sortObject.sortField] < b[sortObject.sortField]) {
             return sortObject.direction === 'ascending' ? -1 : 1
         }
@@ -67,6 +67,10 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter }) => {
         }
         return 0
     })
+
+    const indexOfLastItem = currentPage * itemsPerPage
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage
+    const restaurantList = sortedRestaurantList.slice(indexOfFirstItem, indexOfLastItem) 
 
     return (
         <StyledTable>

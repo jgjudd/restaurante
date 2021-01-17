@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
+import Loading from './components/Loading'
 import Table from './components/Table'
 import SearchBar from './components/SearchBar'
 import SelectAttire from './components/SelectAttire'
@@ -22,7 +23,7 @@ const App = () => {
               Authorization: 'Api-Key q3MNxtfep8Gt',
           },
         })
-        .then(response => response.json())      
+        .then(response => response.json())
         .then(json => setResults(json))
         .catch((error) => console.log(error))
       }
@@ -42,15 +43,19 @@ const App = () => {
         <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} />
       </div>
       <div id='table-section'>
-        <Table 
-          restaurants={results} 
-          searchTerm={searchTerm} 
-          stateFilter={stateFilter} 
-          attireFilter={attireFilter}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          itemsPerPage={itemsPerPage} 
-        />
+        { 
+          results.length === 0 ? <Loading /> 
+          :
+            <Table 
+              restaurants={results} 
+              searchTerm={searchTerm} 
+              stateFilter={stateFilter} 
+              attireFilter={attireFilter}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              itemsPerPage={itemsPerPage} 
+            />
+        }
       </div>
     </div>
   );

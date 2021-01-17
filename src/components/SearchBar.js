@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Label from './Label'
 
 const SearchBarContainer = styled.div`
     display: flex;
@@ -15,7 +16,7 @@ const StyledInput = styled.input`
 const SearchBar = ({ searchTerm, setSearchTerm }) => {
     return (
         <SearchBarContainer>
-            <label id='search-bar-label'>Filter Results By Name, City, or Genre</label>
+            <Label id='search-bar-label' text='Filter Results By Name, City, or Genre' />
             <StyledInput 
                 type='text' 
                 aria-labelledby='search-bar-label'

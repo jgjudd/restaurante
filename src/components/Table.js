@@ -6,7 +6,7 @@ import TableRow from './TableRow'
 import ErrorMessage from './ErrorMessage'
 
 const StyledTable = styled.table`
-    
+    margin-top: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;

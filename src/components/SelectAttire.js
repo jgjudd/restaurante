@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import Label from './Label'
 import styled from 'styled-components'
 
 const SelectContainer = styled.div`
@@ -15,7 +16,7 @@ const StyledSelect = styled.select`
 const SelectAttire = ({ attireFilter, setAttireFilter }) => {
     return (
       <SelectContainer>
-        <label id='attire-dropdown'>Filter By Dress Code:</label>
+        <Label id='attire-dropdown' text='Filter By Dress Code: ' />
         <div>
           <StyledSelect 
             aria-labelledby="attire-dropdown" 

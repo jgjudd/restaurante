@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import Label from './Label'
 import styled from 'styled-components'
 
 const SelectContainer = styled.div`
@@ -9,13 +10,13 @@ const SelectContainer = styled.div`
 `
 
 const StyledSelect = styled.select`
-    font-size: 2rem;
+    font-size: 2.3rem;
 `
 
 const SelectState = ({ stateFilter, setStateFilter }) => {
     return (
       <SelectContainer>
-        <label id='state-dropdown'>Filter By State:</label>
+        <Label id='state-dropdown' text='Filter By State: ' />
         <div>
           <StyledSelect 
             aria-labelledby='state-dropdown' 

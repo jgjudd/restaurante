@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import Label from './Label'
 import styled from 'styled-components'
 
 const SelectContainer = styled.div`
@@ -9,13 +9,14 @@ const SelectContainer = styled.div`
 `
 
 const StyledSelect = styled.select`
-    font-size: 2rem;
+  width: 100%;
+  font-size: 2.3rem;
 `
 
 const SelectItemsPerPage = ({ itemsPerPage, setItemsPerPage }) => {
     return (
       <SelectContainer>
-        <label id='items-per-page-dropdown-label'>Max Items Per Page:</label>
+        <Label id='items-per-page-dropdown-label' text='Max Items Per Page: ' />
         <div>
           <StyledSelect  
             aria-labelledby='items-per-page-dropdown-label' 

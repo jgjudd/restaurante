@@ -47,6 +47,7 @@ const App = () => {
           stateFilter={stateFilter} 
           attireFilter={attireFilter}
           currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           itemsPerPage={itemsPerPage} 
         />
       </div>

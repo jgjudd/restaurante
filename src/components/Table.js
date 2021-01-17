@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import PageNumbers from './PageNumbers'
 import TableRow from './TableRow'
 
 
@@ -16,7 +17,7 @@ const TableBody = styled.tbody`
     }
 `
 
-const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, currentPage, itemsPerPage }) => {
+const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, currentPage, setCurrentPage, itemsPerPage }) => {
     console.log(typeof(searchTerm) + ": " + searchTerm)
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
@@ -73,6 +74,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
     const restaurantList = sortedRestaurantList.slice(indexOfFirstItem, indexOfLastItem) 
 
     return (
+        <React.Fragment>
         <StyledTable>
             { console.log(restaurants) }
             {
@@ -95,6 +97,10 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
                     <span>No Results Were Found That Match That Criteria</span>
             }
         </StyledTable>
+        <div>
+            <PageNumbers itemsPerPage={itemsPerPage} totalItems={restaurants.length} setCurrentPage={setCurrentPage} />
+        </div>
+        </React.Fragment>
     )
 }
 

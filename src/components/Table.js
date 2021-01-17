@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PageNumbers from './PageNumbers'
 import TableRow from './TableRow'
-
+import ErrorMessage from './ErrorMessage'
 
 const StyledTable = styled.table`
     
@@ -102,7 +102,7 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
                         </div>
                     </React.Fragment>)
                     :
-                    <span>No Results Were Found That Match That Criteria</span>
+                    <ErrorMessage text='No Results Were Found That Match That Criteria' />
             }
         </React.Fragment>
     )

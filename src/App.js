@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Table from './components/Table'
 import SearchBar from './components/SearchBar'
 import SelectAttire from './components/SelectAttire'
+import SelectItemsPerPage from './components/SelectItemsPerPage'
 import SelectState from './components/SelectState'
 import './App.css';
 
@@ -35,6 +36,7 @@ const App = () => {
       </div>
       <div id='toolbar-section'>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <SelectItemsPerPage itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} />
         <SelectState stateFilter={stateFilter} setStateFilter={setStateFilter} />
         <SelectAttire attireFilter={attireFilter} setAttireFilter={setAttireFilter} />
       </div>

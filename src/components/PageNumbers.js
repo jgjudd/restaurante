@@ -15,7 +15,7 @@ const Button = styled.button`
     border: .1rem solid red;
     border-radius: 2rem;
     font-size: 1.5rem;
-
+    cursor: pointer;
     outline: 0;
 
     &.activeButton {

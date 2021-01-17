@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PageNumbers from './PageNumbers'
+import TableHeader from './TableHeader'
 import TableRow from './TableRow'
 import ErrorMessage from './ErrorMessage'
 
@@ -82,9 +83,9 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
                             role='table'
                             aria-label='Restaurants Table'
                         >
-                            <thead>
-                                <TableRow isHeader handleSort={handleSort} />   
-                            </thead>
+                            
+                            <TableHeader sortObject={sortObject} handleSort={handleSort} />   
+                           
                             <TableBody>
                                 {
                                     restaurantList.map((restaurant, i ) => (

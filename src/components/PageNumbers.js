@@ -1,7 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const PageNumbers = ({ itemsPerPage, totalItems, setCurrentPage }) => {
+const ButtonRow = styled.div`
+    display: flex;
+    justify-content: center; 
+    margin: 1rem;
+    padding: 1rem;
+`
+const Button = styled.button`
+    margin-right: 1rem;
+    background-color: white;
+    color: red; 
+    padding: .5rem 1.5rem .5rem 1.5rem;
+    border: .1rem solid red;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+
+    outline: 0;
+
+    &.activeButton {
+        color: white;
+        background-color: red;
+    }
+`
+
+
+const PageNumbers = ({ itemsPerPage, totalItems, currentPage, setCurrentPage }) => {
+
     const pageNumbers = []
 
     for(let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
@@ -9,18 +34,19 @@ const PageNumbers = ({ itemsPerPage, totalItems, setCurrentPage }) => {
     }
 
     return (
-        <div>
+        <ButtonRow>
             {
                 pageNumbers.map(item => (
-                    <button 
+                    <Button
+                        className={ currentPage === item ? 'activeButton' : ''} 
                         aria-label={`Navigate to page ${item}`}
                         onClick={() => setCurrentPage(item)}
                     >
                         {item}
-                    </button>
+                    </Button>
                 ))
             }
-        </div>
+        </ButtonRow>
     )
 }
 

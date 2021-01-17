@@ -96,7 +96,8 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
                         <div>
                             <PageNumbers 
                                 itemsPerPage={itemsPerPage} 
-                                totalItems={restaurants.length} 
+                                totalItems={restaurants.length}
+                                currentPage={currentPage} 
                                 setCurrentPage={setCurrentPage} 
                             />
                         </div>

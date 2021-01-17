@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 import Button from './Button'
 import Label from './Label'
 import styled from 'styled-components'
@@ -14,7 +15,7 @@ const StyledSelect = styled.select`
 `
 
 const SelectState = ({ stateFilter, setStateFilter, setCurrentPage }) => {
-
+    const color = useContext(ThemeContext)
     const handleChange = (value) => {
       setCurrentPage(1)
       setStateFilter(value)
@@ -22,7 +23,7 @@ const SelectState = ({ stateFilter, setStateFilter, setCurrentPage }) => {
 
     return (
       <SelectContainer>
-        <Label id='state-dropdown' text='Filter By State: ' />
+        <Label id='state-dropdown' text='Filter By State: ' color='grey' />
         <div>
           <StyledSelect 
             aria-labelledby='state-dropdown' 
@@ -85,8 +86,7 @@ const SelectState = ({ stateFilter, setStateFilter, setCurrentPage }) => {
           <Button 
             onClick={() => handleChange('All')} 
             text='Reset' 
-            color='red' 
-            backgroundColor='white' 
+            color={color} 
           />
         </div>
       </SelectContainer>

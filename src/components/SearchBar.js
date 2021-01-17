@@ -10,7 +10,6 @@ const SearchBarContainer = styled.div`
 `
 const StyledInput = styled.input`
     font-size: 2rem;
-
 `
 
 const SearchBar = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
@@ -20,7 +19,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
     }
     return (
         <SearchBarContainer>
-            <Label id='search-bar-label' text='Filter Results By Name, City, or Genre' />
+            <Label id='search-bar-label' text='Filter Results By Name, City, or Genre' color='grey' />
             <StyledInput 
                 type='text' 
                 aria-labelledby='search-bar-label'

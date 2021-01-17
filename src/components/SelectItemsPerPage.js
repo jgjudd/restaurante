@@ -22,7 +22,7 @@ const SelectItemsPerPage = ({ itemsPerPage, setItemsPerPage, setCurrentPage }) =
 
     return (
       <SelectContainer>
-        <Label id='items-per-page-dropdown-label' text='Max Items Per Page: ' />
+        <Label id='items-per-page-dropdown-label' text='Max Items Per Page: ' color='grey' />
         <div>
           <StyledSelect  
             aria-labelledby='items-per-page-dropdown-label' 

@@ -1,28 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 import styled from 'styled-components'
 
-const HeaderRow = styled.tr`
+const TableHeader = ({ sortObject, handleSort }) => {
+    const color = useContext(ThemeContext)
+    
+    const HeaderRow = styled.tr`
     font-size: 2.5rem;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: red;
+    background-color: ${color};
     color: white;
-    border: 1px solid red;
+    border: 1px solid ${color};
     cursor: pointer;
     
     & th.currentSortHeader {
         background-color: white;
-        color: red;
+        color: ${color};
     }
 `
 const Icon = styled.i`
     margin-right: 1rem;
     float: right;
 `
-
-const TableHeader = ({ sortObject, handleSort }) => {
-
     const TH = ({ headerName }) => {
         return (
             <th 

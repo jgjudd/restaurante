@@ -20,7 +20,6 @@ const TableBody = styled.tbody`
 `
 
 const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, currentPage, setCurrentPage, itemsPerPage }) => {
-    console.log(typeof(searchTerm) + ": " + searchTerm)
 
     const [sortObject, setSortObject] = useState({ sortField: 'name', direction: 'ascending' })
 

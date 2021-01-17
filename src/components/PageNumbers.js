@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ThemeContext } from '../context/ThemeContext'
 
 const ButtonRow = styled.div`
     display: flex;
@@ -7,26 +8,25 @@ const ButtonRow = styled.div`
     margin: 1rem;
     padding: 1rem;
 `
-const Button = styled.button`
-    margin-right: 1rem;
-    background-color: white;
-    color: red; 
-    padding: .5rem 1.5rem .5rem 1.5rem;
-    border: .1rem solid red;
-    border-radius: 2rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    outline: 0;
-
-    &.activeButton {
-        color: white;
-        background-color: red;
-    }
-`
-
 
 const PageNumbers = ({ itemsPerPage, totalItems, currentPage, setCurrentPage }) => {
+    const color = useContext(ThemeContext)
+    const Button = styled.button`
+        margin-right: 1rem;
+        background-color: white;
+        color: ${color}; 
+        padding: .5rem 1.5rem .5rem 1.5rem;
+        border: .1rem solid ${color};
+        border-radius: 2rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        outline: 0;
 
+        &.activeButton {
+            color: white;
+            background-color: ${color};
+        }
+    `
     const pageNumbers = []
 
     for(let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {

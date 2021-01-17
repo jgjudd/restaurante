@@ -2,14 +2,17 @@ html {
   font-size: 10px;
 }
 
-button { 
+button {
   margin: 0;
 }
 
 #grid {
   display: grid;
-  grid-template-columns:  10vw 80vw 10vw;
+  grid-template-columns: 10vw 80vw 9vw;
   grid-template-rows: 10vh 10vh 80vh;
+
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 #header-section {

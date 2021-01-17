@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 import Button from './Button'
 import Label from './Label'
 import styled from 'styled-components'
@@ -14,13 +15,15 @@ const StyledSelect = styled.select`
 `
 
 const SelectAttire = ({ attireFilter, setAttireFilter, setCurrentPage }) => {
+    const color = useContext(ThemeContext)
+
     const handleChange = (value) => {
       setCurrentPage(1)
       setAttireFilter(value)
     } 
     return (
       <SelectContainer>
-        <Label id='attire-dropdown' text='Filter By Dress Code: ' />
+        <Label id='attire-dropdown' text='Filter By Dress Code: ' color='grey' />
         <div>
           <StyledSelect 
             aria-labelledby="attire-dropdown" 
@@ -36,8 +39,7 @@ const SelectAttire = ({ attireFilter, setAttireFilter, setCurrentPage }) => {
           <Button 
             onClick={() => handleChange('All')} 
             text='Reset' 
-            color='red' 
-            backgroundColor='white'
+            color={color} 
           />
         </div>
       </SelectContainer>

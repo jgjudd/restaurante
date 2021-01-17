@@ -14,8 +14,21 @@ const HeaderSection = ({ title, color, backgroundColor }) => {
         align-items: center;
         padding-left: 2rem;
     `
+    const Icon = styled.i`
+        padding-right: 2rem; 
+    `
 
-    return <StyledHeader role='banner'>{title}</StyledHeader>
+
+    return (
+        
+            
+            <StyledHeader role='banner'>
+                <Icon className="fa fa-cutlery" aria-hidden="true"></Icon>        
+                {title}
+            </StyledHeader>
+        
+
+    )
 }
 
 export default HeaderSection

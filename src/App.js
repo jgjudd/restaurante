@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeContext } from './context/ThemeContext'
+
 import Header from './components/Header'
-import Loading from './components/Loading'
-import Table from './components/Table'
-import SearchBar from './components/SearchBar'
-import SelectAttire from './components/SelectAttire'
-import SelectItemsPerPage from './components/SelectItemsPerPage'
-import SelectState from './components/SelectState'
+import Loading from './components/misc/Loading'
+import Table from './components/table/Table'
+
+import SelectAttire from './components/toolbar/SelectAttire'
+import SearchBar from './components/toolbar/SearchBar'
+import SelectItemsPerPage from './components/toolbar/SelectItemsPerPage'
+import SelectState from './components/toolbar/SelectState'
+
 import './App.css';
 
 const App = () => {

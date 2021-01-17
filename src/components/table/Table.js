@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import PageNumbers from './PageNumbers'
+
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
-import ErrorMessage from './ErrorMessage'
+import PageNumbers from './PageNumbers'
+
+import ErrorMessage from '../misc/ErrorMessage'
 
 const StyledTable = styled.table`
     margin-top: 2rem;

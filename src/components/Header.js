@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Label from './Label'
+
+import Label from './misc/Label'
 
 const Header = ({ title, backgroundColor, theme, setTheme }) => {
     const StyledHeader = styled.header`

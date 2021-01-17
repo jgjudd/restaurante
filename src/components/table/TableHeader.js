@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../context/ThemeContext'
 import styled from 'styled-components'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const TableHeader = ({ sortObject, handleSort }) => {
     const color = useContext(ThemeContext)

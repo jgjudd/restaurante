@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-
 const Label = ({ text, color }) => {
     const StyledLabel = styled.label`
         color: ${color};

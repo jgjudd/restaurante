@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Label from './Label'
+
+import Label from '../misc/Label'
 
 const SearchBarContainer = styled.div`
     display: flex;

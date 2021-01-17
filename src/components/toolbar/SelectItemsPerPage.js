@@ -1,6 +1,7 @@
 import React from 'react'
-import Label from './Label'
 import styled from 'styled-components'
+
+import Label from '../misc/Label'
 
 const SelectContainer = styled.div`
   display: flex;

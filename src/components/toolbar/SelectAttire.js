@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../context/ThemeContext'
-import Button from './Button'
-import Label from './Label'
 import styled from 'styled-components'
+import { ThemeContext } from '../../context/ThemeContext'
+
+import Button from '../misc/Button'
+import Label from '../misc/Label'
 
 const SelectContainer = styled.div`
   display: flex;

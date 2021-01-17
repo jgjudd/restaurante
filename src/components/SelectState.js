@@ -15,9 +15,13 @@ const StyledSelect = styled.select`
 const SelectState = ({ stateFilter, setStateFilter }) => {
     return (
       <SelectContainer>
-        <label for='state-dropdown'>Filter By State:</label>
+        <label id='state-dropdown'>Filter By State:</label>
         <div>
-          <StyledSelect name="state-dropdown" value={stateFilter} onChange={(e) => setStateFilter(e.target.value)}>
+          <StyledSelect 
+            aria-labelledby='state-dropdown' 
+            value={stateFilter} 
+            onChange={(e) => setStateFilter(e.target.value)}
+          >
             <option value="All">All</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -71,7 +75,12 @@ const SelectState = ({ stateFilter, setStateFilter }) => {
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </StyledSelect>
-          <Button onClick={() => setStateFilter('All')} text='Reset' color='red' backgroundColor='white' />
+          <Button 
+            onClick={() => setStateFilter('All')} 
+            text='Reset' 
+            color='red' 
+            backgroundColor='white' 
+          />
         </div>
       </SelectContainer>
     )

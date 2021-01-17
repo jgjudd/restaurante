@@ -15,9 +15,10 @@ const StyledInput = styled.input`
 const SearchBar = ({ searchTerm, setSearchTerm }) => {
     return (
         <SearchBarContainer>
-            <labe>Filter Results By Name, City, or Genre</labe>
+            <label id='search-bar-label'>Filter Results By Name, City, or Genre</label>
             <StyledInput 
                 type='text' 
+                aria-labelledby='search-bar-label'
                 placeholder='Search Term...' 
                 value={searchTerm} 
                 onChange={(e) => setSearchTerm(e.target.value)} 

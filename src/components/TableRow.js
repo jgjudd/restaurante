@@ -25,20 +25,20 @@ const TableRow = ({ restaurant, isHeader, handleSort }) => {
         <React.Fragment>
         {
             isHeader ? (
-                <Header>
-                    <th onClick={() => handleSort('name')}>Name</th>
-                    <th onClick={() => handleSort('city')}>City</th>
-                    <th onClick={() => handleSort('state')}>State</th>
-                    <th onClick={() => handleSort('telephone')}>Telephone</th>
-                    <th onClick={() => handleSort('genre')}>Genre</th>
+                <Header role='row'>
+                    <th role="columnheader" onClick={() => handleSort('name')}>Name</th>
+                    <th role="columnheader" onClick={() => handleSort('city')}>City</th>
+                    <th role="columnheader" onClick={() => handleSort('state')}>State</th>
+                    <th role="columnheader" onClick={() => handleSort('telephone')}>Telephone</th>
+                    <th role="columnheader" onClick={() => handleSort('genre')}>Genre</th>
                 </Header>
             ) : (
-                <Row>
-                    <td>{restaurant.name}</td>
-                    <td>{restaurant.city}</td>
-                    <td>{restaurant.state}</td>
-                    <td>{restaurant.telephone}</td>
-                    <td>{restaurant.genre}</td>
+                <Row role='row'>
+                    <td role='cell'>{restaurant.name}</td>
+                    <td role='cell'>{restaurant.city}</td>
+                    <td role='cell'>{restaurant.state}</td>
+                    <td role='cell'>{restaurant.telephone}</td>
+                    <td role='cell'>{restaurant.genre}</td>
                 </Row>
             )
         }

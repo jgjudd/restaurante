@@ -12,7 +12,12 @@ const PageNumbers = ({ itemsPerPage, totalItems, setCurrentPage }) => {
         <div>
             {
                 pageNumbers.map(item => (
-                    <button onClick={() => setCurrentPage(item)}>{item}</button>
+                    <button 
+                        aria-label={`Navigate to page ${item}`}
+                        onClick={() => setCurrentPage(item)}
+                    >
+                        {item}
+                    </button>
                 ))
             }
         </div>

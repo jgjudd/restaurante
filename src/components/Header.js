@@ -15,7 +15,7 @@ const HeaderSection = ({ title, color, backgroundColor }) => {
         padding-left: 2rem;
     `
 
-    return <StyledHeader>{title}</StyledHeader>
+    return <StyledHeader role='banner'>{title}</StyledHeader>
 }
 
 export default HeaderSection

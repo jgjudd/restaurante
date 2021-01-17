@@ -75,31 +75,35 @@ const Table = ({ restaurants, searchTerm = '', stateFilter, attireFilter, curren
 
     return (
         <React.Fragment>
-        <StyledTable>
-            { console.log(restaurants) }
             {
                 restaurantList.length > 0 ? 
-                    (<StyledTable>
-                        <thead>
-                            
-                            <TableRow isHeader handleSort={handleSort} />   
-                            
-                        </thead>
-                        <TableBody>
-                            {
-                                restaurantList.map((restaurant, i ) => (
-                                    <TableRow restaurant={restaurant} key={i} />
-                                ))
-                            }
-                        </TableBody>
-                    </StyledTable>
-                    ) :
+                    (<React.Fragment>
+                        <StyledTable
+                            role='table'
+                            aria-label='Restaurants Table'
+                        >
+                            <thead>
+                                <TableRow isHeader handleSort={handleSort} />   
+                            </thead>
+                            <TableBody>
+                                {
+                                    restaurantList.map((restaurant, i ) => (
+                                        <TableRow restaurant={restaurant} key={i} />
+                                    ))
+                                }
+                            </TableBody>
+                        </StyledTable>
+                        <div>
+                            <PageNumbers 
+                                itemsPerPage={itemsPerPage} 
+                                totalItems={restaurants.length} 
+                                setCurrentPage={setCurrentPage} 
+                            />
+                        </div>
+                    </React.Fragment>)
+                    :
                     <span>No Results Were Found That Match That Criteria</span>
             }
-        </StyledTable>
-        <div>
-            <PageNumbers itemsPerPage={itemsPerPage} totalItems={restaurants.length} setCurrentPage={setCurrentPage} />
-        </div>
         </React.Fragment>
     )
 }

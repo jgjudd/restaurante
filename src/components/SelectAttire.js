@@ -15,16 +15,25 @@ const StyledSelect = styled.select`
 const SelectAttire = ({ attireFilter, setAttireFilter }) => {
     return (
       <SelectContainer>
-        <label for='state-dropdown'>Filter By Dress Code:</label>
+        <label id='attire-dropdown'>Filter By Dress Code:</label>
         <div>
-          <StyledSelect name="state-dropdown" value={attireFilter} onChange={(e) => setAttireFilter(e.target.value)}>
+          <StyledSelect 
+            aria-labelledby="attire-dropdown" 
+            value={attireFilter} 
+            onChange={(e) => setAttireFilter(e.target.value)}
+          >
             <option value="All">All</option>
             <option value="casual">Casual</option>
             <option value="business casual">Business Casual</option>
             <option value="smart casual">Smart Casual</option>
             <option value="formal">Formal</option>
           </StyledSelect>
-          <Button onClick={() => setAttireFilter('All')} text='Reset' color='red' backgroundColor='white' />
+          <Button 
+            onClick={() => setAttireFilter('All')} 
+            text='Reset' 
+            color='red' 
+            backgroundColor='white'
+          />
         </div>
       </SelectContainer>
     )

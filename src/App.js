@@ -19,7 +19,7 @@ const App = () => {
   const [attireFilter, setAttireFilter] = useState('All')
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
-  const [theme, setTheme] = useState('red')
+  const [theme, setTheme] = useState('rgb(220,20,60)')
   
   useEffect(() => {
       async function getRestaurants() {

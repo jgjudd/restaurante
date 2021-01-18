@@ -34,10 +34,11 @@ const Header = ({ title, theme, setTheme }) => {
             <ThemeSection>
                 <Label text='Theme: ' color='white' />
                 <select id='select-theme' value={theme} onChange={(e) => setTheme(e.target.value)}>
-                    <option value='red'>Red</option>
-                    <option value='blue'>Blue</option>
-                    <option value='green'>Green</option>
-                    <option value='black'>Black</option>
+                    <option value="rgb(220,20,60)">Red</option>
+                    <option value="rgb(25,25,112)">Blue</option>
+                    <option value="rgb(0,128,0)">Green</option>
+                    <option value="rgb(75,0,130)">Purple</option>
+                    <option value="rgb(0,0,0)">Black</option>
                 </select>
             </ThemeSection>
         </StyledHeader>

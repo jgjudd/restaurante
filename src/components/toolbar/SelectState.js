@@ -26,7 +26,7 @@ const SelectState = ({ stateFilter, setStateFilter, setCurrentPage }) => {
     return (
       <SelectContainer>
         <Label id='state-dropdown' text='Filter By State: ' color='grey' />
-        <div>
+        <div style={{ 'display': 'flex' }}>
           <StyledSelect 
             aria-labelledby='state-dropdown' 
             value={stateFilter} 

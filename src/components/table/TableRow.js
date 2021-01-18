@@ -10,6 +10,13 @@ const Row = styled.tr`
     & td {
         padding: 1rem;
     }
+    & td.telephone {
+        min-width: 15rem;
+        text-align: center;
+    }
+    & td.state {
+        text-align: center;
+    }
 `
 
 const TableRow = ({ restaurant }) => {
@@ -17,8 +24,8 @@ const TableRow = ({ restaurant }) => {
         <Row role='row'>
             <td role='cell'>{restaurant.name}</td>
             <td role='cell'>{restaurant.city}</td>
-            <td role='cell'>{restaurant.state}</td>
-            <td role='cell'>{restaurant.telephone}</td>
+            <td role='cell' className='state'>{restaurant.state}</td>
+            <td role='cell' className='telephone'>{restaurant.telephone}</td>
             <td role='cell'>{restaurant.genre}</td>
         </Row>
     )

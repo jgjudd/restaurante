@@ -16,6 +16,9 @@ const TableHeader = ({ sortObject, handleSort }) => {
     border: 1px solid ${color};
     cursor: pointer;
     
+    & th {
+        padding: .5rem;
+    }
     & th.currentSortHeader {
         background-color: white;
         color: ${color};
